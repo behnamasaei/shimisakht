@@ -28,9 +28,39 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.rtl.min.css",
+              "node_modules/fontawesome-free/css/all.min.css",
+              "node_modules/animate.css/animate.compat.css",
+              "node_modules/simple-line-icons/dist/styles/simple-line-icons.css",
+              "node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
+              "node_modules/owl.carousel/dist/assets/owl.theme.default.min.css",
+              "node_modules/magnific-popup/dist/magnific-popup.css",
+              "src/assets/Styles/ThemeCSS/rtl-theme.css",
+              "src/assets/Styles/ThemeCSS/rtl-theme-elements.css",
+              "src/assets/Styles/ThemeCSS/rtl-theme-blog.css",
+              "src/assets/Styles/ThemeCSS/rtl-theme-shop.css",
+              "src/assets/Styles/ThemeCSS/rtl-demo-industry-factory.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/modernizr/src/Modernizr.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/jquery.appear/jquery.appear.js",
+              "node_modules/jquery.easing/jquery.easing.min.js",
+              "node_modules/jquery.cookie/jquery.cookie.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "bower_components/jquery-validation/dist/jquery.validate.min.js",
+              "bower_components/jquery.easy-pie-chart/dist/angular.easypiechart.min.js",
+              "bower_components/jquery.gmap/jquery.gmap.min.js",
+              "node_modules/lazysizes/lazysizes.min.js",
+              "node_modules/owl.carousel/dist/owl.carousel.min.js",
+              "node_modules/magnific-popup/dist/jquery.magnific-popup.min.js",
+              "node_modules/vide/dist/jquery.vide.min.js",
+              "node_modules/vivus/dist/vivus.min.js",
+              "src/assets/Scripts/ThemeJS/view.contact.js",
+              "src/assets/Scripts/ThemeJS/demo-industry-factory.js",
+              "src/assets/Scripts/ThemeJS/theme.init.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -103,5 +133,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
