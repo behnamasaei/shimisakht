@@ -113,9 +113,9 @@
 /******************************************************************************
   Global Style 
 *******************************************************************************/
+
 body {
   font-family: 'Arimo', sans-serif;
-  background:url(../img/bg.jpg) repeat;
   height: 100%;
   line-height: 1.8;
   font-style:normal;
@@ -423,6 +423,7 @@ section,
     margin: 0 auto -65px;
     max-width: 1200px;
     width: 100%;
+	background:#fff;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 /* z-index */
@@ -632,6 +633,10 @@ i.i-10x{
 	line-height:100px;		
 	font-size:30px;
 	margin-bottom:15px;
+}
+i.no-margin,
+.i-3x i.no-margin{
+	margin:0px !important;
 }
 i.pull-left{
 	margin-right: 0.3em;
@@ -1417,7 +1422,6 @@ i.fa-1x{
 .image-bg.parallax-7{
 	top:-25px;
 }
-
 /* Overlay */
 .overlay {
     background:#000;
@@ -2605,7 +2609,7 @@ p.tp-caption.button-block a{
 	position:relative;
 	min-height:187px;
 	border:0px solid;
-	margin-bottom:20px;
+	margin-bottom:0px;
 	cursor:pointer;
 }
 .special-feature .mask-bottom{
@@ -2647,7 +2651,7 @@ p.tp-caption.button-block a{
 }
 .service-image  img{	
 	padding:15px;	
-    background:url(../img/bg.jpg) repeat;
+    background:#fff;
 }
 .image-top-border .service-image:before{
 	content:"";
@@ -2908,9 +2912,14 @@ p.tp-caption.button-block a{
 .general-section #mix-container .mix{
 	padding:0px;
 }
-.general-section.white #mix-container .mix{
+.general-section.white #mix-container .mix,
+.general-section.item-pad #mix-container .mix{
 	display: none;
 	padding:5px;
+}
+.general-section.panel-group #mix-container .mix{
+	display: none;
+	padding:0px;
 }
 .general-section.white #mix-container.new .mix,
 .general-section.item-pad #mix-container.new .mix,
@@ -2920,10 +2929,6 @@ p.tp-caption.button-block a{
 .general-section.white #mix-container.new .mix,
 .general-section.item-pad #mix-container.new .mix{
 	padding:20px;
-}
-.general-section.panel-group #mix-container .mix{
-	display: none;
-	padding:0px;
 }
 #mix-container.new .caption-block{
 	background:none !important;
@@ -2962,9 +2967,6 @@ p.tp-caption.button-block a{
 .caption-block{
 	padding:10px;
 	color:#111111;
-}
-.white .caption-block{
-	color:#fff;
 }
 .portfolio-grid .grids:hover .figcaption{
 	position:absolute;
@@ -3163,7 +3165,6 @@ p.tp-caption.button-block a{
 .fact-counter h3>span{
 	display:block;
 	font-size:20px;
-	color:rgba(255,255,255,.6);
 }
  .circle.count-number{
 	border:2px solid ;
@@ -3341,6 +3342,11 @@ a:hover i.bg-color{
 .tweet_text a,
 .twitter-feed .tweet_text{
 		color: #FFFFFF;
+}
+.black.twitter-feed .tweet_user a,
+.black .tweet_text a,
+.black.twitter-feed .tweet_text{
+		color: #171717 !important;
 }
 .twitter-feed i{
 	padding:15px;
@@ -3845,6 +3851,7 @@ a:hover i.bg-color{
 
 .page-header{
 	border-bottom: 1px solid #e1e1e1;
+	border-top: 1px solid #e1e1e1;
 	padding: 30px 0;
 	background-color:#f2f2f2;
 	margin: 0px;
@@ -4535,10 +4542,9 @@ ul.tags li{
 	color:#ffffff;
 }
 .box-item{
-	background:#1a1a1d;
+	background-color:#f7f7f7;
 	padding:20px;
-	border:1px solid #0b0c0d;
-	color:#fff;
+	border:1px solid #dedcdc;
 }
 .box-item h4,
 .lit-space h4{
@@ -5589,8 +5595,8 @@ ul.tags li{
   Footer
 *******************************************************************************/
 #footer{
-	color:#999999;
-	background:url(../img/bg.jpg) repeat;
+	color:#999999;	
+    background:url(../img/bg.jpg) repeat;
 }
 .widget{	
 	font-size: 13px;
@@ -5602,7 +5608,19 @@ ul.tags li{
 	color:#999999;
 }
 #footer .widget ul li{
-	padding:0 0 8px 0px;
+	padding:4px 0px;
+}
+#footer .widget ul.border-list li{
+	padding:8px 0px;
+}
+#footer .widget ul.border-list li{
+	border-bottom:1px solid rgba(255,255,255,.2);
+}
+#footer .widget ul li:first-child{
+	padding-top:0;
+}
+#footer .widget ul.border-list li:last-child{
+	border-bottom:0;
 }
 #footer .widget a:hover,
 .footer-count .counter{
@@ -5674,6 +5692,9 @@ ul.tags li{
 	top:0;
 }
 /* Copyright */
+.copyright{
+	position:relative;
+}
 .copyright a{
 	color:#7f7f7f;
 }
@@ -5691,7 +5712,7 @@ ul.tags li{
 /******************************************************************************
   Dark Section
 *******************************************************************************/
-.dark-bg,.page-box-wapper{
+.dark-bg{
 	background:url(../img/bg.jpg) repeat;
 }
 #footer .dark-section.footer-widget{
@@ -5723,26 +5744,7 @@ ul.tags li{
 	border:1px dashed rgba(255, 255, 255, 0.2);
 	box-shadow:none;
 }
-/* New Dark BG Color */
-.page-section.new-dark,
-.new-dark,
-.dark-header .navbar.new-dark,
-.dark-header .new-dark .dropdown-menu,
-.dark-header .new-dark .bg-white{
-	background:#1a1a1d!important;
-}
-.page-section.new-semi-dark,
-.new-semi-dark,
-#footer .copyright.new-semi-dark,
-.new-semi-dark-icon i{
-	background:#28292d !important;
-}
-.new-semi-dark1{
-	background:#1e1f22 !important;
-}
-.navbar-default{
-	box-shadow:none !important;
-}
+
 /******************************************************************************
   Bootstrap Elements
 *******************************************************************************/

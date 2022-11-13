@@ -38,7 +38,8 @@
               "src/assets/MetalTheme/css/prettyPhoto.css",
               "src/assets/MetalTheme/css/style.css",
               "src/assets/MetalTheme/css/responsive.css",
-              "src/assets/MetalTheme/css/color.css"
+              "src/assets/MetalTheme/css/color.css",
+              "src/styles.scss"
             ],
             "scripts": [
               "src/assets/MetalTheme/js/jquery.min.js",

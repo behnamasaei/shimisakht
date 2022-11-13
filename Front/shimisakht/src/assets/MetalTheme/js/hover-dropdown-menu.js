@@ -1,6 +1,6 @@
 /*!
  *
- * Hover Dropdown And Megamenu 
+ * Hover Dropdown And Megamenu
  * http://www.zozothemes.com/
  *
  */
@@ -737,7 +737,7 @@
 						}
 					}
 				}
-				$sub.css({ top: 'auto', left: '0', marginLeft: x, marginTop: y - itemH });
+				$sub.css({ top: 'auto', right: '0', marginLeft: x, marginTop: y - itemH });
 				// IE iframe shim
 				this.menuIframeShim($sub);
 				if ($sub.dataSM('ie-shim')) {

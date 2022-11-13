@@ -3,3 +3,10 @@
 @import url(assets/Fonts/FontStyles.scss);
 
 
+*{
+  font-family: IranYekanWebMedium;
+}
+
+.fullcoveredvideo video, .fullscreenvideo video{
+  background: transparent;
+}
