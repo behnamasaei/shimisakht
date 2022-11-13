@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import * as jquery from 'jquery';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,11 @@ import * as jquery from 'jquery';
 })
 export class AppComponent {
   title = 'shimisakht';
+
+  /**
+   *
+   */
+  constructor() {
+  }
+
 }

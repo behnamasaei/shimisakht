@@ -23,49 +23,47 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/assets/Theme/vendor/bootstrap/css/bootstrap.min.css",
-              "src/assets/Theme/vendor/fontawesome-free/css/all.min.css",
-              "src/assets/Theme/vendor/animate/animate.compat.css",
-              "src/assets/Theme/vendor/simple-line-icons/css/simple-line-icons.min.css",
-              "src/assets/Theme/vendor/owl.carousel/assets/owl.carousel.min.css",
-              "src/assets/Theme/vendor/owl.carousel/assets/owl.theme.default.min.css",
-              "src/assets/Theme/vendor/magnific-popup/magnific-popup.min.css",
-              "src/assets/Theme/css/rtl-theme.css",
-              "src/assets/Theme/css/rtl-theme-elements.css",
-              "src/assets/Theme/css/rtl-theme-blog.css",
-              "src/assets/Theme/css/rtl-theme-shop.css",
-              "src/assets/Theme/css/demos/rtl-demo-industry-factory.css",
-              "src/assets/Theme/css/skins/skin-industry-factory.css",
-
-              "src/styles.scss"
+              "src/assets/MetalTheme/css/font-awesome.min.css",
+              "src/assets/MetalTheme/css/bootstrap.min.css",
+              "src/assets/MetalTheme/css/hover-dropdown-menu.css",
+              "src/assets/MetalTheme/css/icons.css",
+              "src/assets/MetalTheme/css/revolution-slider.css",
+              "src/assets/MetalTheme/rs-plugin/css/settings.css",
+              "src/assets/MetalTheme/css/animate.min.css",
+              "src/assets/MetalTheme/css/owl/owl.carousel.css",
+              "src/assets/MetalTheme/css/owl/owl.theme.css",
+              "src/assets/MetalTheme/css/owl/owl.transitions.css",
+              "src/assets/MetalTheme/css/prettyPhoto.css",
+              "src/assets/MetalTheme/css/style.css",
+              "src/assets/MetalTheme/css/responsive.css",
+              "src/assets/MetalTheme/css/color.css"
             ],
             "scripts": [
-              "src/assets/Theme/vendor/modernizr/modernizr.min.js",
-              "src/assets/Theme/vendor/jquery/jquery.min.js",
-              "src/assets/Theme/vendor/jquery.appear/jquery.appear.min.js",
-              "src/assets/Theme/vendor/jquery.easing/jquery.easing.min.js",
-              "src/assets/Theme/vendor/jquery.cookie/jquery.cookie.min.js",
-              "src/assets/Theme/vendor/bootstrap/js/bootstrap.bundle.min.js",
-              "src/assets/Theme/vendor/jquery.validation/jquery.validate.min.js",
-              "src/assets/Theme/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js",
-              "src/assets/Theme/vendor/jquery.gmap/jquery.gmap.min.js",
-              "src/assets/Theme/vendor/lazysizes/lazysizes.min.js",
-              "src/assets/Theme/vendor/isotope/jquery.isotope.min.js",
-              "src/assets/Theme/vendor/owl.carousel/owl.carousel.min.js",
-              "src/assets/Theme/vendor/magnific-popup/jquery.magnific-popup.min.js",
-              "src/assets/Theme/vendor/vide/jquery.vide.min.js",
-              "src/assets/Theme/vendor/vivus/vivus.min.js",
-              "src/assets/Theme/js/theme.js",
-              "src/assets/Theme/js/views/view.contact.js",
-              "src/assets/Theme/js/demos/demo-industry-factory.js",
-              "src/assets/Theme/js/custom.js",
-              "src/assets/Theme/js/theme.init.js"
-
+              "src/assets/MetalTheme/js/jquery.min.js",
+              "src/assets/MetalTheme/js/bootstrap.min.js",
+              "src/assets/MetalTheme/js/hover-dropdown-menu.js",
+              "src/assets/MetalTheme/js/jquery.hover-dropdown-menu-addon.js",
+              "src/assets/MetalTheme/js/jquery.easing.1.3.js",
+              "src/assets/MetalTheme/js/jquery.sticky.js",
+              "src/assets/MetalTheme/rs-plugin/js/jquery.themepunch.tools.min.js",
+              "src/assets/MetalTheme/rs-plugin/js/jquery.themepunch.revolution.min.js",
+              "src/assets/MetalTheme/js/bootstrapValidator.min.js",
+              "src/assets/MetalTheme/js/revolution-custom.js",
+              "src/assets/MetalTheme/js/jquery.mixitup.min.js",
+              "src/assets/MetalTheme/js/jquery.appear.js",
+              "src/assets/MetalTheme/js/effect.js",
+              "src/assets/MetalTheme/js/owl.carousel.min.js",
+              "src/assets/MetalTheme/js/jquery.prettyPhoto.js",
+              "src/assets/MetalTheme/js/jquery.parallax-1.1.3.js",
+              "src/assets/MetalTheme/js/jquery.countTo.js",
+              "src/assets/MetalTheme/js/tweet/carousel.js",
+              "src/assets/MetalTheme/js/tweet/scripts.js",
+              "src/assets/MetalTheme/js/tweet/tweetie.min.js",
+              "src/assets/MetalTheme/js/jquery.easypiechart.min.js",
+              "src/assets/MetalTheme/js/jquery.mb.YTPlayer.js",
+              "src/assets/MetalTheme/js/custom.js"
             ]
           },
           "configurations": {
@@ -127,13 +125,8 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         }
