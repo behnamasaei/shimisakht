@@ -1,6 +1,7 @@
 using Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 // Add services to the container.
 
@@ -9,7 +10,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSqlServer<ApplicationContext>()
+builder.Services.AddSqlServer<ApplicationContext>(
+    configuration.GetConnectionString("Default"),
+     b => b.MigrationsAssembly("API"));
 
 var app = builder.Build();
 

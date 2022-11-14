@@ -3,3 +3,5 @@ Api/Shimisakht/API/bin
 Api/Shimisakht/Domain/bin
 Api/Shimisakht/Infrastructure/obj/Debug
 Api/Shimisakht/Infrastructure/obj
+Api/Shimisakht/Domain/obj
+Api/Shimisakht/Infrastructure/bin/Debug
