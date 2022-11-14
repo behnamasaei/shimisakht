@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Blog
 {
-    public class BlogParentCategory
+    public class BlogParentCategory : BaseEntity
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
+       
+        public string Title { get; set; }
         public string Slug { get; set; }
         public bool Active { get; set; }
         public virtual ICollection<BlogChildCategory> ChildCategories { get; set; }

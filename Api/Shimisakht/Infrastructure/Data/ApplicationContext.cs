@@ -19,7 +19,7 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, Application
 
     public DbSet<ShopParentCategory> ShopParentCategories { get; set; }
     public DbSet<ShopChildCategory> ShopChildCategories { get; set; }
-    public DbSet<Product> Products { get; set; }
+    public DbSet<ShopProduct> Products { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -70,7 +70,7 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, Application
             .HasForeignKey(f => f.ParentId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        builder.Entity<Product>()
+        builder.Entity<ShopProduct>()
             .HasOne(s => s.ShopChildCategory)
             .WithMany(s => s.Products)
             .HasForeignKey(f => f.ShopChildId);

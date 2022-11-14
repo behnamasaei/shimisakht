@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Blog
 {
-    public class BlogPost
+    public class BlogPost : BaseEntity
     {
-        public Guid Id { get; set; }
+        
         public string Title { get; set; }
         public string Content { get; set; }
 

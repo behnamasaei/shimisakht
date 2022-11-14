@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Shop
 {
-    public class ShopParentCategory
+    public class ShopParentCategory : BaseEntity
     {
-        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Slug { get; set; }
         public bool Active { get; set; }
