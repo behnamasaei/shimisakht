@@ -23,6 +23,23 @@ public class BlogChildCatRepository : GenericRepository<BlogChildCategory>, IBlo
 }
 
 
+public class BlogTagRepository : GenericRepository<BlogTag>, IBlogTagRepository
+{
+    public BlogTagRepository(ApplicationContext context, ILogger logger) : base(context, logger)
+    {
+
+    }
+}
+
+public class BlogPostTagRepository : GenericRepository<BlogPostTag>, IBlogPostTagRepository
+{
+    public BlogPostTagRepository(ApplicationContext context, ILogger logger) : base(context, logger)
+    {
+
+    }
+}
+
+
 public class BlogPostRepository : GenericRepository<BlogPost>, IBlogPostRepository
 {
     public BlogPostRepository(ApplicationContext context, ILogger logger) : base(context, logger)
@@ -30,4 +47,3 @@ public class BlogPostRepository : GenericRepository<BlogPost>, IBlogPostReposito
 
     }
 }
-

@@ -13,4 +13,12 @@ namespace Infrastructure.Repositoreis.Interface
     public interface IBlogPostRepository : IGenericRepository<BlogPost>
     {
     }
+
+    public interface IBlogTagRepository : IGenericRepository<BlogTag>
+    {
+    }
+
+    public interface IBlogPostTagRepository : IGenericRepository<BlogPostTag>
+    {
+    }
 }

@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Blog
 {
-    public class BlogPost : BaseEntity
+    public class BlogTag : BaseEntity
     {
-        
         public string Title { get; set; }
-        public string Content { get; set; }
-
-        public Guid ParentCategoryId { get; set; }
-        public BlogChildCategory BlogChildCategory { get; set; }
+        public string Description { get; set; }
+        public bool Activate { get; set; }
         public ICollection<BlogPostTag> BlogPostTags { get; set; }
     }
 }

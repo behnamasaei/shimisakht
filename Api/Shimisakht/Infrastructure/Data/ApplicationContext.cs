@@ -16,6 +16,8 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, Application
     public DbSet<BlogParentCategory> BlogParentCategories { get; set; }
     public DbSet<BlogChildCategory> blogChildCategories { get; set; }
     public DbSet<BlogPost> BlogPosts { get; set; }
+    public DbSet<BlogTag> BlogTags { get; set; }
+    public DbSet<BlogPostTag> BlogPostTags { get; set; }
 
     public DbSet<ShopParentCategory> ShopParentCategories { get; set; }
     public DbSet<ShopChildCategory> ShopChildCategories { get; set; }
@@ -48,6 +50,20 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, Application
             .WithOne(b => b.BlogChildCategory)
             .HasForeignKey(f => f.ParentCategoryId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<BlogPostTag>()
+            .HasKey(k => new { k.BlogPostId , k.BlogTagId });
+
+        builder.Entity<BlogPostTag>()
+            .HasOne(b => b.BlogPost)
+            .WithMany(b => b.BlogPostTags)
+            .HasForeignKey(f => f.BlogPostId);
+
+        builder.Entity<BlogPostTag>()
+            .HasOne(b => b.BlogTag)
+            .WithMany(b => b.BlogPostTags)
+            .HasForeignKey(f => f.BlogTagId);
+
 
         #endregion
 

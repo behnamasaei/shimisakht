@@ -11,6 +11,8 @@ namespace Infrastructure.Repositoreis.Interface
         IBlogParentCatRepository BlogParentCatRepository { get; }
         IBlogChildCatRepository BlogChildCatRepository { get; }
         IBlogPostRepository BlogPostRepository { get; }
+        IBlogTagRepository BlogTagRepository { get; }
+        IBlogPostTagRepository BlogPostTagRepository { get; }
         IShopParentCatRepository ShopParentCatRepository { get; }
         IShopChildCatRepository ShopChildCatRepository { get; }
         IShopProductRepository ShopProductRepository { get; } 

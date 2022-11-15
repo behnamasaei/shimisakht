@@ -16,6 +16,8 @@ namespace Infrastructure.Repositoreis
         public IBlogChildCatRepository BlogChildCatRepository { get; private set; }
 
         public IBlogPostRepository BlogPostRepository { get; private set; }
+        public IBlogTagRepository BlogTagRepository { get; private set; }
+        public IBlogPostTagRepository BlogPostTagRepository { get; private set; }
 
         public IShopParentCatRepository ShopParentCatRepository { get; private set; }
 
@@ -35,6 +37,9 @@ namespace Infrastructure.Repositoreis
             BlogParentCatRepository = new BlogParentCatRepository(context, _logger);
             BlogChildCatRepository = new BlogChildCatRepository(context, _logger);
             BlogPostRepository = new BlogPostRepository(context, _logger);
+            BlogTagRepository = new BlogTagRepository(context, _logger);
+            BlogPostTagRepository = new BlogPostTagRepository(context, _logger);
+
             ShopParentCatRepository = new ShopParentCatRepository(context, _logger);
             ShopChildCatRepository = new ShopChildCatRepository(context, _logger);
             ShopProductRepository = new ShopProductRepository(context, _logger);
