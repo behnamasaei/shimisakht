@@ -36,8 +36,10 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, Application
                 new ApplicationUser
                 {
                     Id = new Guid("b74ddd14-6340-4840-95c2-db12554843e1"),
-                    UserName = "behnaAdmin",
-                    Email = "behnaAdmin@gmail.com",
+                    UserName = "behnamAdmin",
+                    NormalizedUserName = "behnamAdmin".ToUpper(),
+                    Email = "behnamAdmin@gmail.com",
+                    NormalizedEmail = "behnamAdmin@gmail.com".ToUpper(),
                     EmailConfirmed = true,
                     PasswordHash = hasher.HashPassword(null, "58125812")
                 },
@@ -45,15 +47,19 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, Application
                 {
                     Id = new Guid("b74ddd14-6340-4840-95c2-db12554843e2"),
                     UserName = "behnamAuthor",
+                    NormalizedUserName = "behnamAuthor".ToUpper(),
                     Email = "behnamAuthor@gmail.com",
+                    NormalizedEmail = "behnamAuthor@gmail.com".ToUpper(),
                     EmailConfirmed = true,
                     PasswordHash = hasher.HashPassword(null, "58125812")
                 },
                 new ApplicationUser
                 {
                     Id = new Guid("b74ddd14-6340-4840-95c2-db12554843e3"),
-                    UserName = "behnaBasic",
-                    Email = "behnaBasic@gmail.com",
+                    UserName = "behnamBasic",
+                    NormalizedUserName = "behnamBasic".ToUpper(),
+                    Email = "behnamBasic@gmail.com",
+                    NormalizedEmail = "behnamBasic@gmail.com".ToUpper(),
                     EmailConfirmed = true,
                     PasswordHash = hasher.HashPassword(null, "58125812")
                 });
@@ -81,16 +87,34 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, Application
 
         builder.Entity<IdentityUserRole<Guid>>()
             .HasData(
+                // Admin
                 new IdentityUserRole<Guid>
                 {
                     UserId = new Guid("b74ddd14-6340-4840-95c2-db12554843e1"),
                     RoleId = new Guid("b74ddd14-6340-4840-95c2-db12554843e4")
-                }, 
+                },
+                new IdentityUserRole<Guid>
+                {
+                    UserId = new Guid("b74ddd14-6340-4840-95c2-db12554843e1"),
+                    RoleId = new Guid("b74ddd14-6340-4840-95c2-db12554843e5")
+                },
+                new IdentityUserRole<Guid>
+                {
+                    UserId = new Guid("b74ddd14-6340-4840-95c2-db12554843e1"),
+                    RoleId = new Guid("b74ddd14-6340-4840-95c2-db12554843e6")
+                },
+                // Author
                 new IdentityUserRole<Guid>
                 {
                     UserId = new Guid("b74ddd14-6340-4840-95c2-db12554843e2"),
                     RoleId = new Guid("b74ddd14-6340-4840-95c2-db12554843e5")
-                }, 
+                },
+                new IdentityUserRole<Guid>
+                {
+                    UserId = new Guid("b74ddd14-6340-4840-95c2-db12554843e2"),
+                    RoleId = new Guid("b74ddd14-6340-4840-95c2-db12554843e6")
+                },
+                // Basic
                 new IdentityUserRole<Guid>
                 {
                     UserId = new Guid("b74ddd14-6340-4840-95c2-db12554843e3"),

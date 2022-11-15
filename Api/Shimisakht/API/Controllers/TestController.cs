@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Domain.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -15,14 +16,14 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = RoleAccess.Admin)]
         public string AdminData()
         {
             return "This is site of shimisakht.ir";
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = RoleAccess.Admin_Author)]
         public string AdminAuthorData()
         {
             return "This is site of shimisakht.ir";
@@ -30,7 +31,7 @@ namespace API.Controllers
 
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = RoleAccess.AllUser)]
         public string AllUserData()
         {
             return "This is site of shimisakht.ir";
