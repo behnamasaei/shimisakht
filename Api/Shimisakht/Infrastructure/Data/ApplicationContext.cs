@@ -1,6 +1,7 @@
 ﻿using Domain.Blog;
 using Domain.Identity;
 using Domain.Shop;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,7 +26,84 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, Application
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        var hasher = new PasswordHasher<ApplicationUser>();
         base.OnModelCreating(builder);
+
+        #region Identity
+
+        builder.Entity<ApplicationUser>()
+            .HasData(
+                new ApplicationUser
+                {
+                    Id = new Guid("b74ddd14-6340-4840-95c2-db12554843e1"),
+                    UserName = "behnaAdmin",
+                    Email = "behnaAdmin@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "58125812")
+                },
+                new ApplicationUser
+                {
+                    Id = new Guid("b74ddd14-6340-4840-95c2-db12554843e2"),
+                    UserName = "behnamAuthor",
+                    Email = "behnamAuthor@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "58125812")
+                },
+                new ApplicationUser
+                {
+                    Id = new Guid("b74ddd14-6340-4840-95c2-db12554843e3"),
+                    UserName = "behnaBasic",
+                    Email = "behnaBasic@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash = hasher.HashPassword(null, "58125812")
+                });
+
+        builder.Entity<ApplicationRole>()
+            .HasData(
+                new ApplicationRole
+                {
+                    Id = new Guid("b74ddd14-6340-4840-95c2-db12554843e4"),
+                    Name = UserRolesData.Admin,
+                    NormalizedName = UserRolesData.Admin.ToUpper()
+                },
+                new ApplicationRole
+                {
+                    Id = new Guid("b74ddd14-6340-4840-95c2-db12554843e5"),
+                    Name = UserRolesData.Author,
+                    NormalizedName = UserRolesData.Author.ToUpper()
+                }, new ApplicationRole
+                {
+                    Id = new Guid("b74ddd14-6340-4840-95c2-db12554843e6"),
+                    Name = UserRolesData.BasicUser,
+                    NormalizedName = UserRolesData.BasicUser.ToUpper()
+                }
+            );
+
+        builder.Entity<IdentityUserRole<Guid>>()
+            .HasData(
+                new IdentityUserRole<Guid>
+                {
+                    UserId = new Guid("b74ddd14-6340-4840-95c2-db12554843e1"),
+                    RoleId = new Guid("b74ddd14-6340-4840-95c2-db12554843e4")
+                }, 
+                new IdentityUserRole<Guid>
+                {
+                    UserId = new Guid("b74ddd14-6340-4840-95c2-db12554843e2"),
+                    RoleId = new Guid("b74ddd14-6340-4840-95c2-db12554843e5")
+                }, 
+                new IdentityUserRole<Guid>
+                {
+                    UserId = new Guid("b74ddd14-6340-4840-95c2-db12554843e3"),
+                    RoleId = new Guid("b74ddd14-6340-4840-95c2-db12554843e6")
+                }
+            );
+
+
+        #endregion
+
+
+
+
 
         #region Blog
 
@@ -52,7 +130,7 @@ public class ApplicationContext : IdentityDbContext<ApplicationUser, Application
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.Entity<BlogPostTag>()
-            .HasKey(k => new { k.BlogPostId , k.BlogTagId });
+            .HasKey(k => new { k.BlogPostId, k.BlogTagId });
 
         builder.Entity<BlogPostTag>()
             .HasOne(b => b.BlogPost)

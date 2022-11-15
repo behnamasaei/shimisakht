@@ -31,14 +31,14 @@ namespace API.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<Guid>("ParentId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -58,11 +58,11 @@ namespace API.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Slug")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Slug")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -92,7 +92,44 @@ namespace API.Migrations
 
                     b.HasIndex("ParentCategoryId");
 
-                    b.ToTable("BlogPost");
+                    b.ToTable("BlogPosts");
+                });
+
+            modelBuilder.Entity("Domain.Blog.BlogPostTag", b =>
+                {
+                    b.Property<Guid>("BlogPostId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("BlogTagId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("BlogPostId", "BlogTagId");
+
+                    b.HasIndex("BlogTagId");
+
+                    b.ToTable("BlogPostTags");
+                });
+
+            modelBuilder.Entity("Domain.Blog.BlogTag", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Activate")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BlogTags");
                 });
 
             modelBuilder.Entity("Domain.Identity.ApplicationRole", b =>
@@ -187,6 +224,89 @@ namespace API.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Shop.ShopChildCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("ParentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("ShopChildCategories");
+                });
+
+            modelBuilder.Entity("Domain.Shop.ShopParentCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ShopParentCategories");
+                });
+
+            modelBuilder.Entity("Domain.Shop.ShopProduct", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("ShopChildId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShopChildId");
+
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -314,6 +434,47 @@ namespace API.Migrations
                     b.Navigation("BlogChildCategory");
                 });
 
+            modelBuilder.Entity("Domain.Blog.BlogPostTag", b =>
+                {
+                    b.HasOne("Domain.Blog.BlogPost", "BlogPost")
+                        .WithMany("BlogPostTags")
+                        .HasForeignKey("BlogPostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Blog.BlogTag", "BlogTag")
+                        .WithMany("BlogPostTags")
+                        .HasForeignKey("BlogTagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BlogPost");
+
+                    b.Navigation("BlogTag");
+                });
+
+            modelBuilder.Entity("Domain.Shop.ShopChildCategory", b =>
+                {
+                    b.HasOne("Domain.Shop.ShopParentCategory", "ParentCategory")
+                        .WithMany("ChildCategories")
+                        .HasForeignKey("ParentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ParentCategory");
+                });
+
+            modelBuilder.Entity("Domain.Shop.ShopProduct", b =>
+                {
+                    b.HasOne("Domain.Shop.ShopChildCategory", "ShopChildCategory")
+                        .WithMany("Products")
+                        .HasForeignKey("ShopChildId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ShopChildCategory");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.HasOne("Domain.Identity.ApplicationRole", null)
@@ -371,6 +532,26 @@ namespace API.Migrations
                 });
 
             modelBuilder.Entity("Domain.Blog.BlogParentCategory", b =>
+                {
+                    b.Navigation("ChildCategories");
+                });
+
+            modelBuilder.Entity("Domain.Blog.BlogPost", b =>
+                {
+                    b.Navigation("BlogPostTags");
+                });
+
+            modelBuilder.Entity("Domain.Blog.BlogTag", b =>
+                {
+                    b.Navigation("BlogPostTags");
+                });
+
+            modelBuilder.Entity("Domain.Shop.ShopChildCategory", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("Domain.Shop.ShopParentCategory", b =>
                 {
                     b.Navigation("ChildCategories");
                 });
